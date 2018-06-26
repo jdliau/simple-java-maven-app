@@ -13,7 +13,7 @@ pipeline {
                  PROXY_ENABLED = 'TRUE'
             } 
             steps {
-                sh 'mvn -B -DskipTests clean package' 
+                sh 'mvn -e -X -B -DskipTests clean package' 
             }
         }
     }
