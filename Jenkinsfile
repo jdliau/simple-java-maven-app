@@ -6,7 +6,12 @@ pipeline {
         }
     }
     stages {
-        stage('Build') { 
+        stage('Build') {
+            environment {
+                 HTTPS_PROXY = 'http://PITC-Zscaler-Global-ZEN.proxy.corporate.ge.com:80'
+                 HTTP_PROXY = 'http://PITC-Zscaler-Global-ZEN.proxy.corporate.ge.com:80'
+                 PROXY_ENABLED = 'TRUE'
+            } 
             steps {
                 sh 'mvn -B -DskipTests clean package' 
             }
